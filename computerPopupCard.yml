@@ -1,0 +1,248 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    button_type: switch
+    icon: mdi:monitor
+    hash: "#DeskMonitor"
+    trigger: []
+    show_header: true
+    name: 电脑
+    styles: |2-
+       .bubble-pop-up {
+         --bubble-pop-up-background-color: rgb(80, 69, 87,0.5) !important;
+         --accent-color: rgb(46, 97, 124);
+      }
+        .bubble-header-container {
+          --bubble-button-accent-color: rgb(46, 97, 124) !important;
+          --bubble-secondary-background-color: rgb(0, 0, 0,0.5) !important;
+          --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+          --bubble-accent-color: rgb(176, 217, 255) !important;
+        }
+    close_action:
+      action: perform-action
+      target:
+        entity_id: input_boolean.computer_pop_up_state
+      perform_action: input_boolean.turn_off
+    backdrop_blur: "0"
+    margin_top_mobile: 56px
+    shadow_opacity: ""
+    entity: switch.sonoff_1000e65755_1
+    show_state: true
+    show_last_changed: true
+    show_attribute: false
+    force_icon: false
+    auto_close: "10000"
+    bg_blur: "30"
+    bg_opacity: "88"
+    margin: 7px
+    hide_backdrop: false
+  - type: custom:bubble-card
+    card_type: separator
+    name: 显示器
+    icon: mdi:monitor
+    grid_options:
+      rows: 1
+      columns: 12
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        entity: switch.sonoff_1000d047cd
+        grid_options:
+          columns: 6
+          rows: 1
+        tap_action:
+          action: toggle
+        styles: |2-
+            ha-card {
+              --bubble-button-accent-color: rgb(45, 115, 154) !important;
+              --ha-card-background: rgb(45, 115, 154) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+              --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+             ${icon.setAttribute("icon", hass.states['switch.sonoff_1000d047cd'].state === 'on' ? 'mdi:monitor' : 'mdi:monitor-off')}
+      - type: custom:bubble-card
+        card_type: button
+        entity: switch.sonoff_10012b50c5
+        grid_options:
+          columns: 6
+          rows: 1
+        tap_action:
+          action: toggle
+        styles: |2-
+            ha-card {
+              --bubble-button-accent-color: rgb(45, 115, 154) !important;
+              --ha-card-background: rgb(45, 115, 154) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+              --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+             ${icon.setAttribute("icon", hass.states['switch.sonoff_10012b50c5'].state === 'on' ? 'mdi:monitor' : 'mdi:monitor-off')}
+        icon: mdi:monitor
+      - type: custom:bubble-card
+        card_type: button
+        entity: switch.sonoff_10017530d2
+        grid_options:
+          columns: 6
+          rows: 1
+        tap_action:
+          action: toggle
+        styles: |2-
+            ha-card {
+              --bubble-button-accent-color: rgb(45, 115, 154) !important;
+              --ha-card-background: rgb(45, 115, 154) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+              --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+             ${icon.setAttribute("icon", hass.states['switch.sonoff_10017530d2'].state === 'on' ? 'mdi:monitor' : 'mdi:monitor-off')}
+        icon: ""
+  - type: custom:bubble-card
+    card_type: separator
+    name: 台灯
+    icon: mdi:desk-lamp-on
+    grid_options:
+      rows: 1
+      columns: 12
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        entity: light.yeelink_cn_495968105_lamp22_s_2
+        name: 护眼灯
+        tap_action:
+          action: toggle
+        styles: >2-
+            ha-card {
+              --bubble-button-accent-color: rgb(45, 115, 154) !important;
+              --ha-card-background: rgb(45, 115, 154) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+               --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+          ${icon.setAttribute("icon",
+          hass.states['light.yeelink_cn_495968105_lamp22_s_2'].state === 'on' ?
+          'mdi:lightbulb-fluorescent-tube' :
+          'mdi:lightbulb-fluorescent-tube-outline')}
+        icon: mdi:lightbulb-fluorescent-tube-outline
+        sub_button:
+          - entity: light.yeelink_cn_495968105_lamp22_s_2
+            show_state: false
+            show_attribute: true
+            attribute: brightness
+            show_background: false
+            icon: mdi:lightbulb-on
+            visibility:
+              - condition: state
+                entity: light.yeelink_cn_495968105_lamp22_s_2
+                state: "on"
+        show_state: true
+      - type: custom:bubble-card
+        card_type: button
+        entity: light.yeelink_cn_360433997_lamp4_s_2
+        grid_options:
+          columns: 6
+          rows: 1
+        name: 台灯
+        styles: >2-
+            ha-card {
+              --bubble-button-accent-color: rgb(45, 115, 154) !important;
+              --ha-card-background: rgb(45, 115, 154) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+              --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+          ${icon.setAttribute("icon",
+          hass.states['light.yeelink_cn_360433997_lamp4_s_2'].state === 'on' ?
+          'mdi:desk-lamp-on' : 'mdi:desk-lamp-off')}
+        icon: mdi:desk-lamp-on
+        sub_button:
+          - entity: light.yeelink_cn_360433997_lamp4_s_2
+            icon: mdi:lightbulb-on
+            show_background: false
+            show_attribute: true
+            attribute: brightness
+            visibility:
+              - condition: state
+                entity: light.yeelink_cn_360433997_lamp4_s_2
+                state: "on"
+  - type: custom:bubble-card
+    card_type: separator
+    name: 电脑
+    icon: mdi:laptop
+    grid_options:
+      rows: 1
+      columns: 12
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        entity: switch.sonoff_1000e65755_1
+        name: 开关机
+        tap_action:
+          action: toggle
+        styles: >2-
+            ha-card {
+              --bubble-button-accent-color: rgb(94, 116, 138) !important;
+              --ha-card-background: rgb(94, 116, 138) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+                 --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+            }
+          ${icon.setAttribute("icon",
+          hass.states['switch.sonoff_1000e65755_1'].state === 'on' ?
+          'mdi:laptop' : 'mdi:laptop-off')}
+        icon: mdi:laptop
+      - type: custom:bubble-card
+        card_type: button
+        entity: switch.sonoff_1000e65755_2
+        grid_options:
+          columns: 6
+          rows: 1
+        name: 强制关机
+        styles: |2-
+            ha-card {
+              --bubble-button-accent-color: rgb(94, 116, 138) !important;
+              --ha-card-background: rgb(94, 116, 138) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+              --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+        icon: mdi:restart
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        entity: switch.sonoff_1000e65755_3
+        name: 重启
+        tap_action:
+          action: toggle
+        styles: |2-
+            ha-card {
+              --bubble-button-accent-color: rgb(94, 116, 138) !important;
+              --ha-card-background: rgb(94, 116, 138) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+              --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+        icon: mdi:restart
+      - type: custom:bubble-card
+        card_type: button
+        entity: switch.sonoff_1000e65755_4
+        grid_options:
+          columns: 6
+          rows: 1
+        name: 锁定开机键
+        styles: >2-
+            ha-card {
+              --bubble-button-accent-color: rgb(94, 116, 138) !important;
+              --ha-card-background: rgb(94, 116, 138) !important;
+              --accent-color: rgb(176, 217, 255) !important;
+              --bubble-secondary-background-color: rgb(0, 0, 0,0) !important;
+              --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+            }
+          {icon.setAttribute("icon",
+          hass.states['switch.sonoff_1000e65755_4'].state === 'on' ?
+          'mdi:lock-open-outline' : 'mdi:lock-open-variant-outline')}
+        icon: mdi:lock-open-variant-outline
