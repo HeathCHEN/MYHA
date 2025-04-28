@@ -1,0 +1,43 @@
+type: custom:bubble-card
+card_type: button
+entity: switch.sonoff_1000e65755_1
+sub_button:
+  - entity: light.yeelink_cn_495968105_lamp22_s_2
+    show_background: true
+    show_state: true
+    tap_action:
+      action: toggle
+  - entity: switch.sonoff_1000e65755_4
+    show_state: true
+    show_background: true
+    icon: mdi:lock-outline
+    name: 锁定
+    show_name: false
+    tap_action:
+      action: toggle
+styles: |2+
+      ha-card {
+      --bubble-button-accent-color: rgb(46, 97, 124) !important;
+      --bubble-secondary-background-color: rgb(0, 0, 0,0.3) !important;
+      --bubble-box-shadow:  2px 4px 8px 0 rgba(0, 0, 0, 0.4) ;
+      --accent-color: rgb(176, 217, 255);
+      --bubble-light-color: rgb(0, 0, 0,0.3) !important;
+    }
+    .bubble-sub-button{
+     --bubble-sub-button-light-background-color: rgb(0, 0, 0,0.3) !important;
+    }
+    ${icon.setAttribute("icon", hass.states['input_boolean.air_condition_script_entity_state'].state === 'on' ? 'mdi:laptop' : 'mdi:laptop-off')}
+
+button_action:
+  tap_action:
+    action: navigate
+    navigation_path: "#DeskMonitor"
+name: 电脑
+show_state: true
+icon: mdi:laptop
+tap_action:
+  action: none
+double_tap_action:
+  action: none
+hold_action:
+  action: toggle
