@@ -1,0 +1,39 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    icon: mdi:monitor
+    hash: "#SurveillanceCamera"
+    trigger: []
+    show_header: false
+    name: ""
+    styles: |2-
+       .bubble-pop-up {
+         --bubble-pop-up-background-color: rgb(80, 69, 87,0.5) !important;
+      }
+    show_name: false
+    show_icon: true
+    scrolling_effect: true
+    auto_close: "15000"
+    margin_top_mobile: 56px
+    bg_blur: "100"
+    backdrop_blur: "100"
+  - type: custom:bubble-card
+    card_type: separator
+    name: 监控
+    icon: phu:arlo-cam
+    grid_options:
+      rows: 1
+      columns: 12
+  - camera_view: live
+    type: picture-glance
+    title: 客厅监控
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    entities: []
+    camera_image: camera.ke_ting_zhong_yang_mainstream
+  - camera_view: live
+    type: picture-glance
+    title: 客厅监控2
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    entities: []
+    camera_image: camera.ke_ting_chuang_tai_mainstream
